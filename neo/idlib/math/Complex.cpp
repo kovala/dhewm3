@@ -30,13 +30,11 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "idlib/math/Complex.h"
 
-idComplex complex_origin( 0.0f, 0.0f );
+idComplex complex_origin(0.0f, 0.0f);
 
 /*
 =============
 idComplex::ToString
 =============
 */
-const char *idComplex::ToString( int precision ) const {
-	return idStr::FloatArrayToString( ToFloatPtr(), GetDimension(), precision );
-}
+const char* idComplex::ToString(int precision) const { return idStr::FloatArrayToString(ToFloatPtr(), GetDimension(), precision); }

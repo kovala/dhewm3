@@ -440,7 +440,7 @@ bool idIK_Walk::Init( idEntity *self, const char *anim, const idVec3 &modelOffse
 	};
 
 	if ( !self ) {
-		return false;
+		return false;																									`-
 	}
 
 	numLegs = Min( self->spawnArgs.GetInt( "ik_numLegs", "0" ), MAX_LEGS );
