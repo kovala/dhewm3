@@ -134,12 +134,9 @@ typedef struct punctuation_s {
   int n; // punctuation id
 } punctuation_t;
 
-
 class idLexer {
-
   friend class idParser;
 public:
-  // constructor
   idLexer();
   idLexer(int flags);
   idLexer(const char* filename, int flags = 0, bool OSPath = false);
