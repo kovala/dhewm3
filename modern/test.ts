@@ -6,22 +6,23 @@ const testWait = async () => {
   console.log("hello world");
 };
 const testFetch = async () => {
-  const r = await fetch("https://jsonplaceholder.typicode.com/posts/1")
-  const json = await r.json();  
+  const r = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+  const json = await r.json();
   console.dir(json, { depth: null });
 };
 
-const toRun = { 
-  testWait, testFetch 
-};
-const run = async () => {
+const run = async (toRun:{[x: string]:any}) => {
   const args = process.argv.slice(2);
   const f = toRun[args[0]];
   if (f) {
-    await f();
+    try {
+      await f();
+    } catch (error) {
+      console.error(error);
+      process.exit(1);
+    }
   }
 };
-run().catch((e) => {
-  console.error(e);
-  process.exit(1);
+run({
+  testWait, testFetch,
 });

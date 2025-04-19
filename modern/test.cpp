@@ -1,7 +1,7 @@
+#include <iostream>
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include <iostream>
 
 int sum(const std::initializer_list<int>& list) {
   int total = 0;
@@ -11,9 +11,7 @@ int sum(const std::initializer_list<int>& list) {
   return total;
 }
 
-auto asKey(const std::string_view& str) {
-  std::cout << "asKey: " << str << std::endl;
-}
+auto asKey(const std::string_view& str) { std::cout << "asKey: " << str << std::endl; }
 
 int main() {
   asKey("hello");
@@ -33,4 +31,3 @@ int main() {
   printf("Total: %d\n", total);
   return 0;
 }
-
