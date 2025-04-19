@@ -1,18 +1,22 @@
 const testWait = async () => {
-  const args = process.argv.slice(2); 
+  const args = process.argv.slice(2);
   console.dir(args, { depth: null });
-  
+
   await new Promise((resolve) => setTimeout(resolve, 1000));
   console.log("hello world");
 };
+const testFetch = async () => {
+  const r = await fetch("https://jsonplaceholder.typicode.com/posts/1")
+  const json = await r.json();  
+  console.dir(json, { depth: null });
+};
 
-const toRun = {
-  testWait,
-}
+const toRun = { 
+  testWait, testFetch 
+};
 const run = async () => {
   const args = process.argv.slice(2);
-  const k = args[0];
-  const f = toRun[k];  
+  const f = toRun[args[0]];
   if (f) {
     await f();
   }
